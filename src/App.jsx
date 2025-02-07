@@ -2,19 +2,22 @@ import HomePage from "./pages/HomePage"
 import Error404 from "./pages/Error404"
 import DefaultLayout from "./layouts/DefaultLayout"
 import { BrowserRouter, Route, Routes } from "react-router-dom"
-
+import { GlobalProvider } from "./context/GlobalContext"
 function App() {
 
 
   return (
+    <GlobalProvider>
     <BrowserRouter>
-    <Routes>
+     <Routes>
       <Route element={<DefaultLayout/>}>
         <Route path="/" element={<HomePage/>}/>
         <Route path="*"element={<Error404/>}/>
       </Route>
-    </Routes> 
+     </Routes> 
     </BrowserRouter>
+    </GlobalProvider>
+
   )
 }
 
