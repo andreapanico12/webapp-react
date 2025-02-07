@@ -1,13 +1,20 @@
-import { useState } from 'react'
-
+import HomePage from "./pages/HomePage"
+import Error404 from "./pages/Error404"
+import DefaultLayout from "./layouts/DefaultLayout"
+import { BrowserRouter, Route, Routes } from "react-router-dom"
 
 function App() {
-  const [count, setCount] = useState(0)
+
 
   return (
-    <>
-     
-    </>
+    <BrowserRouter>
+    <Routes>
+      <Route element={<DefaultLayout/>}>
+        <Route path="/" element={<HomePage/>}/>
+        <Route path="*"element={<Error404/>}/>
+      </Route>
+    </Routes> 
+    </BrowserRouter>
   )
 }
 
