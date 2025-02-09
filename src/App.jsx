@@ -3,6 +3,7 @@ import Error404 from "./pages/Error404"
 import DefaultLayout from "./layouts/DefaultLayout"
 import { BrowserRouter, Route, Routes } from "react-router-dom"
 import { GlobalProvider } from "./context/GlobalContext"
+import MovieDetailsPage from "./pages/MovieDetailsPage"
 function App() {
 
 
@@ -12,6 +13,7 @@ function App() {
      <Routes>
       <Route element={<DefaultLayout/>}>
         <Route path="/" element={<HomePage/>}/>
+        <Route path="/movies/:id" element={<MovieDetailsPage/>}/>
         <Route path="*"element={<Error404/>}/>
       </Route>
      </Routes> 
