@@ -4,11 +4,12 @@ import { useEffect } from "react";
 import Rating from "../components/Rating";
 import ReviewCard from "../components/ReviewCard";
 import { Link } from "react-router-dom";
+import ReviewForm from "../components/ReviewForm";
 
 const MovieDetailsPage = () => {
 
   const {id} = useParams();
-  const {movie,fetchSingleMovie} = useGlobalContext()
+  const {movie,setMovie,fetchSingleMovie} = useGlobalContext()
 
   const renderReviews = () => {
     return movie.reviews.map(item => <ReviewCard key={item.id} review={item}/>)
@@ -19,7 +20,7 @@ const MovieDetailsPage = () => {
   return (
     <div className="container mt-5">
     <div className="row justify-content-center">
-      <div className="col-md-4">
+      <div className="col-md-8">
         <h1 className="text-warning">{movie.title}</h1>
         <ul className="list-group list-group-flush">
           <li className="list-group-item"><strong>Director:</strong> {movie.director}</li>
@@ -34,7 +35,13 @@ const MovieDetailsPage = () => {
           ) : (
             <p className="text-muted">No reviews available.</p>
           )}
+
+          <ReviewForm movie_id={movie.id} setMovie={setMovie} fetchSingleMovie={fetchSingleMovie}/>
+
+          <Link to='/' className=" btn btn-danger my-2 px-4 border border-black">Back</Link>
       </div>
+
+      
 
       <div className="col-md-4">
         <img
@@ -42,7 +49,7 @@ const MovieDetailsPage = () => {
           alt={movie.title}
           className="img-fluid rounded movie-poster"
         />
-        <Link to='/' className=" btn btn-danger my-2 px-4 border border-black">Back</Link>
+        
       </div>
     </div>
   </div>
