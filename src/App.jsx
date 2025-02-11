@@ -4,6 +4,9 @@ import DefaultLayout from "./layouts/DefaultLayout"
 import { BrowserRouter, Route, Routes } from "react-router-dom"
 import { GlobalProvider } from "./context/GlobalContext"
 import MovieDetailsPage from "./pages/MovieDetailsPage"
+import NewMoviePage from "./pages/NewMoviePage"
+
+
 function App() {
 
 
@@ -14,6 +17,7 @@ function App() {
       <Route element={<DefaultLayout/>}>
         <Route path="/" element={<HomePage/>}/>
         <Route path="/movies/:id" element={<MovieDetailsPage/>}/>
+        <Route path="/movies/add" element={<NewMoviePage/>}/>
         <Route path="*"element={<Error404/>}/>
       </Route>
      </Routes> 

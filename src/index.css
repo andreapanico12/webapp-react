@@ -1,3 +1,10 @@
+
+.nav-title{
+  font-weight: 800;
+  font-size: 2rem;
+}
+
+
 .movie-image{
   aspect-ratio: 3/4;
   width: 100%;
